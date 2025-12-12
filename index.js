@@ -557,4 +557,5 @@ if (!nativeBinding) {
 }
 
 module.exports = nativeBinding
+module.exports.getArrayLength = nativeBinding.getArrayLength
 module.exports.plus100 = nativeBinding.plus100

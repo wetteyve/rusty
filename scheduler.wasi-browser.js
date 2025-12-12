@@ -56,4 +56,5 @@ const {
   },
 })
 export default __napiModule.exports
+export const getArrayLength = __napiModule.exports.getArrayLength
 export const plus100 = __napiModule.exports.plus100

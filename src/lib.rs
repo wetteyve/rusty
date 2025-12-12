@@ -1,8 +1,14 @@
 #![deny(clippy::all)]
 
 use napi_derive::napi;
+use napi::bindgen_prelude::*;
 
 #[napi]
 pub fn plus_100(input: u32) -> u32 {
   input + 100
+}
+
+#[napi]
+pub fn get_array_length(arr: Vec<Unknown>) -> u32 {
+    arr.len() as u32
 }
