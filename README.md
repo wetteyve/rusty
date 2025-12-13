@@ -6,8 +6,8 @@
 
 ## 📚 Docs
 
-- [Overview](overview.md)
-- [Setup](setup.md)
-- [Testing](testing.md)
-- [CI/CD](ci-cd.md)
-- [Release](release.md)
+- [Overview](docs/overview.md)
+- [Setup](docs/setup.md)
+- [Testing](docs/testing.md)
+- [CI/CD](docs/ci-cd.md)
+- [Release](docs/release.md)
