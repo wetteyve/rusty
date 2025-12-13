@@ -73,13 +73,13 @@ function requireNative() {
   } else if (process.platform === 'android') {
     if (process.arch === 'arm64') {
       try {
-        return require('./scheduler.android-arm64.node')
+        return require('./rusty.android-arm64.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-android-arm64')
-        const bindingPackageVersion = require('@wetteyve/scheduler-android-arm64/package.json').version
+        const binding = require('@wetteyve/rusty-android-arm64')
+        const bindingPackageVersion = require('@wetteyve/rusty-android-arm64/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -89,13 +89,13 @@ function requireNative() {
       }
     } else if (process.arch === 'arm') {
       try {
-        return require('./scheduler.android-arm-eabi.node')
+        return require('./rusty.android-arm-eabi.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-android-arm-eabi')
-        const bindingPackageVersion = require('@wetteyve/scheduler-android-arm-eabi/package.json').version
+        const binding = require('@wetteyve/rusty-android-arm-eabi')
+        const bindingPackageVersion = require('@wetteyve/rusty-android-arm-eabi/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -109,13 +109,13 @@ function requireNative() {
   } else if (process.platform === 'win32') {
     if (process.arch === 'x64') {
       try {
-        return require('./scheduler.win32-x64-msvc.node')
+        return require('./rusty.win32-x64-msvc.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-win32-x64-msvc')
-        const bindingPackageVersion = require('@wetteyve/scheduler-win32-x64-msvc/package.json').version
+        const binding = require('@wetteyve/rusty-win32-x64-msvc')
+        const bindingPackageVersion = require('@wetteyve/rusty-win32-x64-msvc/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -125,13 +125,13 @@ function requireNative() {
       }
     } else if (process.arch === 'ia32') {
       try {
-        return require('./scheduler.win32-ia32-msvc.node')
+        return require('./rusty.win32-ia32-msvc.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-win32-ia32-msvc')
-        const bindingPackageVersion = require('@wetteyve/scheduler-win32-ia32-msvc/package.json').version
+        const binding = require('@wetteyve/rusty-win32-ia32-msvc')
+        const bindingPackageVersion = require('@wetteyve/rusty-win32-ia32-msvc/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -141,13 +141,13 @@ function requireNative() {
       }
     } else if (process.arch === 'arm64') {
       try {
-        return require('./scheduler.win32-arm64-msvc.node')
+        return require('./rusty.win32-arm64-msvc.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-win32-arm64-msvc')
-        const bindingPackageVersion = require('@wetteyve/scheduler-win32-arm64-msvc/package.json').version
+        const binding = require('@wetteyve/rusty-win32-arm64-msvc')
+        const bindingPackageVersion = require('@wetteyve/rusty-win32-arm64-msvc/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -160,13 +160,13 @@ function requireNative() {
     }
   } else if (process.platform === 'darwin') {
     try {
-      return require('./scheduler.darwin-universal.node')
+      return require('./rusty.darwin-universal.node')
     } catch (e) {
       loadErrors.push(e)
     }
     try {
-      const binding = require('@wetteyve/scheduler-darwin-universal')
-      const bindingPackageVersion = require('@wetteyve/scheduler-darwin-universal/package.json').version
+      const binding = require('@wetteyve/rusty-darwin-universal')
+      const bindingPackageVersion = require('@wetteyve/rusty-darwin-universal/package.json').version
       if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
         throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
       }
@@ -176,13 +176,13 @@ function requireNative() {
     }
     if (process.arch === 'x64') {
       try {
-        return require('./scheduler.darwin-x64.node')
+        return require('./rusty.darwin-x64.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-darwin-x64')
-        const bindingPackageVersion = require('@wetteyve/scheduler-darwin-x64/package.json').version
+        const binding = require('@wetteyve/rusty-darwin-x64')
+        const bindingPackageVersion = require('@wetteyve/rusty-darwin-x64/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -192,13 +192,13 @@ function requireNative() {
       }
     } else if (process.arch === 'arm64') {
       try {
-        return require('./scheduler.darwin-arm64.node')
+        return require('./rusty.darwin-arm64.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-darwin-arm64')
-        const bindingPackageVersion = require('@wetteyve/scheduler-darwin-arm64/package.json').version
+        const binding = require('@wetteyve/rusty-darwin-arm64')
+        const bindingPackageVersion = require('@wetteyve/rusty-darwin-arm64/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -212,13 +212,13 @@ function requireNative() {
   } else if (process.platform === 'freebsd') {
     if (process.arch === 'x64') {
       try {
-        return require('./scheduler.freebsd-x64.node')
+        return require('./rusty.freebsd-x64.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-freebsd-x64')
-        const bindingPackageVersion = require('@wetteyve/scheduler-freebsd-x64/package.json').version
+        const binding = require('@wetteyve/rusty-freebsd-x64')
+        const bindingPackageVersion = require('@wetteyve/rusty-freebsd-x64/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -228,13 +228,13 @@ function requireNative() {
       }
     } else if (process.arch === 'arm64') {
       try {
-        return require('./scheduler.freebsd-arm64.node')
+        return require('./rusty.freebsd-arm64.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-freebsd-arm64')
-        const bindingPackageVersion = require('@wetteyve/scheduler-freebsd-arm64/package.json').version
+        const binding = require('@wetteyve/rusty-freebsd-arm64')
+        const bindingPackageVersion = require('@wetteyve/rusty-freebsd-arm64/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -249,13 +249,13 @@ function requireNative() {
     if (process.arch === 'x64') {
       if (isMusl()) {
         try {
-          return require('./scheduler.linux-x64-musl.node')
+          return require('./rusty.linux-x64-musl.node')
         } catch (e) {
           loadErrors.push(e)
         }
         try {
-          const binding = require('@wetteyve/scheduler-linux-x64-musl')
-          const bindingPackageVersion = require('@wetteyve/scheduler-linux-x64-musl/package.json').version
+          const binding = require('@wetteyve/rusty-linux-x64-musl')
+          const bindingPackageVersion = require('@wetteyve/rusty-linux-x64-musl/package.json').version
           if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
             throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
           }
@@ -265,13 +265,13 @@ function requireNative() {
         }
       } else {
         try {
-          return require('./scheduler.linux-x64-gnu.node')
+          return require('./rusty.linux-x64-gnu.node')
         } catch (e) {
           loadErrors.push(e)
         }
         try {
-          const binding = require('@wetteyve/scheduler-linux-x64-gnu')
-          const bindingPackageVersion = require('@wetteyve/scheduler-linux-x64-gnu/package.json').version
+          const binding = require('@wetteyve/rusty-linux-x64-gnu')
+          const bindingPackageVersion = require('@wetteyve/rusty-linux-x64-gnu/package.json').version
           if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
             throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
           }
@@ -283,13 +283,13 @@ function requireNative() {
     } else if (process.arch === 'arm64') {
       if (isMusl()) {
         try {
-          return require('./scheduler.linux-arm64-musl.node')
+          return require('./rusty.linux-arm64-musl.node')
         } catch (e) {
           loadErrors.push(e)
         }
         try {
-          const binding = require('@wetteyve/scheduler-linux-arm64-musl')
-          const bindingPackageVersion = require('@wetteyve/scheduler-linux-arm64-musl/package.json').version
+          const binding = require('@wetteyve/rusty-linux-arm64-musl')
+          const bindingPackageVersion = require('@wetteyve/rusty-linux-arm64-musl/package.json').version
           if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
             throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
           }
@@ -299,13 +299,13 @@ function requireNative() {
         }
       } else {
         try {
-          return require('./scheduler.linux-arm64-gnu.node')
+          return require('./rusty.linux-arm64-gnu.node')
         } catch (e) {
           loadErrors.push(e)
         }
         try {
-          const binding = require('@wetteyve/scheduler-linux-arm64-gnu')
-          const bindingPackageVersion = require('@wetteyve/scheduler-linux-arm64-gnu/package.json').version
+          const binding = require('@wetteyve/rusty-linux-arm64-gnu')
+          const bindingPackageVersion = require('@wetteyve/rusty-linux-arm64-gnu/package.json').version
           if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
             throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
           }
@@ -317,13 +317,13 @@ function requireNative() {
     } else if (process.arch === 'arm') {
       if (isMusl()) {
         try {
-          return require('./scheduler.linux-arm-musleabihf.node')
+          return require('./rusty.linux-arm-musleabihf.node')
         } catch (e) {
           loadErrors.push(e)
         }
         try {
-          const binding = require('@wetteyve/scheduler-linux-arm-musleabihf')
-          const bindingPackageVersion = require('@wetteyve/scheduler-linux-arm-musleabihf/package.json').version
+          const binding = require('@wetteyve/rusty-linux-arm-musleabihf')
+          const bindingPackageVersion = require('@wetteyve/rusty-linux-arm-musleabihf/package.json').version
           if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
             throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
           }
@@ -333,13 +333,13 @@ function requireNative() {
         }
       } else {
         try {
-          return require('./scheduler.linux-arm-gnueabihf.node')
+          return require('./rusty.linux-arm-gnueabihf.node')
         } catch (e) {
           loadErrors.push(e)
         }
         try {
-          const binding = require('@wetteyve/scheduler-linux-arm-gnueabihf')
-          const bindingPackageVersion = require('@wetteyve/scheduler-linux-arm-gnueabihf/package.json').version
+          const binding = require('@wetteyve/rusty-linux-arm-gnueabihf')
+          const bindingPackageVersion = require('@wetteyve/rusty-linux-arm-gnueabihf/package.json').version
           if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
             throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
           }
@@ -351,13 +351,13 @@ function requireNative() {
     } else if (process.arch === 'loong64') {
       if (isMusl()) {
         try {
-          return require('./scheduler.linux-loong64-musl.node')
+          return require('./rusty.linux-loong64-musl.node')
         } catch (e) {
           loadErrors.push(e)
         }
         try {
-          const binding = require('@wetteyve/scheduler-linux-loong64-musl')
-          const bindingPackageVersion = require('@wetteyve/scheduler-linux-loong64-musl/package.json').version
+          const binding = require('@wetteyve/rusty-linux-loong64-musl')
+          const bindingPackageVersion = require('@wetteyve/rusty-linux-loong64-musl/package.json').version
           if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
             throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
           }
@@ -367,13 +367,13 @@ function requireNative() {
         }
       } else {
         try {
-          return require('./scheduler.linux-loong64-gnu.node')
+          return require('./rusty.linux-loong64-gnu.node')
         } catch (e) {
           loadErrors.push(e)
         }
         try {
-          const binding = require('@wetteyve/scheduler-linux-loong64-gnu')
-          const bindingPackageVersion = require('@wetteyve/scheduler-linux-loong64-gnu/package.json').version
+          const binding = require('@wetteyve/rusty-linux-loong64-gnu')
+          const bindingPackageVersion = require('@wetteyve/rusty-linux-loong64-gnu/package.json').version
           if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
             throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
           }
@@ -385,13 +385,13 @@ function requireNative() {
     } else if (process.arch === 'riscv64') {
       if (isMusl()) {
         try {
-          return require('./scheduler.linux-riscv64-musl.node')
+          return require('./rusty.linux-riscv64-musl.node')
         } catch (e) {
           loadErrors.push(e)
         }
         try {
-          const binding = require('@wetteyve/scheduler-linux-riscv64-musl')
-          const bindingPackageVersion = require('@wetteyve/scheduler-linux-riscv64-musl/package.json').version
+          const binding = require('@wetteyve/rusty-linux-riscv64-musl')
+          const bindingPackageVersion = require('@wetteyve/rusty-linux-riscv64-musl/package.json').version
           if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
             throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
           }
@@ -401,13 +401,13 @@ function requireNative() {
         }
       } else {
         try {
-          return require('./scheduler.linux-riscv64-gnu.node')
+          return require('./rusty.linux-riscv64-gnu.node')
         } catch (e) {
           loadErrors.push(e)
         }
         try {
-          const binding = require('@wetteyve/scheduler-linux-riscv64-gnu')
-          const bindingPackageVersion = require('@wetteyve/scheduler-linux-riscv64-gnu/package.json').version
+          const binding = require('@wetteyve/rusty-linux-riscv64-gnu')
+          const bindingPackageVersion = require('@wetteyve/rusty-linux-riscv64-gnu/package.json').version
           if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
             throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
           }
@@ -418,13 +418,13 @@ function requireNative() {
       }
     } else if (process.arch === 'ppc64') {
       try {
-        return require('./scheduler.linux-ppc64-gnu.node')
+        return require('./rusty.linux-ppc64-gnu.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-linux-ppc64-gnu')
-        const bindingPackageVersion = require('@wetteyve/scheduler-linux-ppc64-gnu/package.json').version
+        const binding = require('@wetteyve/rusty-linux-ppc64-gnu')
+        const bindingPackageVersion = require('@wetteyve/rusty-linux-ppc64-gnu/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -434,13 +434,13 @@ function requireNative() {
       }
     } else if (process.arch === 's390x') {
       try {
-        return require('./scheduler.linux-s390x-gnu.node')
+        return require('./rusty.linux-s390x-gnu.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-linux-s390x-gnu')
-        const bindingPackageVersion = require('@wetteyve/scheduler-linux-s390x-gnu/package.json').version
+        const binding = require('@wetteyve/rusty-linux-s390x-gnu')
+        const bindingPackageVersion = require('@wetteyve/rusty-linux-s390x-gnu/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -454,13 +454,13 @@ function requireNative() {
   } else if (process.platform === 'openharmony') {
     if (process.arch === 'arm64') {
       try {
-        return require('./scheduler.openharmony-arm64.node')
+        return require('./rusty.openharmony-arm64.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-openharmony-arm64')
-        const bindingPackageVersion = require('@wetteyve/scheduler-openharmony-arm64/package.json').version
+        const binding = require('@wetteyve/rusty-openharmony-arm64')
+        const bindingPackageVersion = require('@wetteyve/rusty-openharmony-arm64/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -470,13 +470,13 @@ function requireNative() {
       }
     } else if (process.arch === 'x64') {
       try {
-        return require('./scheduler.openharmony-x64.node')
+        return require('./rusty.openharmony-x64.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-openharmony-x64')
-        const bindingPackageVersion = require('@wetteyve/scheduler-openharmony-x64/package.json').version
+        const binding = require('@wetteyve/rusty-openharmony-x64')
+        const bindingPackageVersion = require('@wetteyve/rusty-openharmony-x64/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -486,13 +486,13 @@ function requireNative() {
       }
     } else if (process.arch === 'arm') {
       try {
-        return require('./scheduler.openharmony-arm.node')
+        return require('./rusty.openharmony-arm.node')
       } catch (e) {
         loadErrors.push(e)
       }
       try {
-        const binding = require('@wetteyve/scheduler-openharmony-arm')
-        const bindingPackageVersion = require('@wetteyve/scheduler-openharmony-arm/package.json').version
+        const binding = require('@wetteyve/rusty-openharmony-arm')
+        const bindingPackageVersion = require('@wetteyve/rusty-openharmony-arm/package.json').version
         if (bindingPackageVersion !== '0.0.3-0' && process.env.NAPI_RS_ENFORCE_VERSION_CHECK && process.env.NAPI_RS_ENFORCE_VERSION_CHECK !== '0') {
           throw new Error(`Native binding package version mismatch, expected 0.0.3-0 but got ${bindingPackageVersion}. You can reinstall dependencies to fix this issue.`)
         }
@@ -514,7 +514,7 @@ if (!nativeBinding || process.env.NAPI_RS_FORCE_WASI) {
   let wasiBinding = null
   let wasiBindingError = null
   try {
-    wasiBinding = require('./scheduler.wasi.cjs')
+    wasiBinding = require('./rusty.wasi.cjs')
     nativeBinding = wasiBinding
   } catch (err) {
     if (process.env.NAPI_RS_FORCE_WASI) {
@@ -523,7 +523,7 @@ if (!nativeBinding || process.env.NAPI_RS_FORCE_WASI) {
   }
   if (!nativeBinding) {
     try {
-      wasiBinding = require('@wetteyve/scheduler-wasm32-wasi')
+      wasiBinding = require('@wetteyve/rusty-wasm32-wasi')
       nativeBinding = wasiBinding
     } catch (err) {
       if (process.env.NAPI_RS_FORCE_WASI) {

@@ -1,1 +1,1 @@
-export * from '@wetteyve/scheduler-wasm32-wasi'
+export * from '@wetteyve/rusty-wasm32-wasi'

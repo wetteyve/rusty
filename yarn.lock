@@ -1378,9 +1378,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wetteyve/scheduler@workspace:.":
+"@wetteyve/rusty@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@wetteyve/scheduler@workspace:."
+  resolution: "@wetteyve/rusty@workspace:."
   dependencies:
     "@emnapi/core": "npm:^1.5.0"
     "@emnapi/runtime": "npm:^1.5.0"
