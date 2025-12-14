@@ -56,12 +56,7 @@
     }
   },
   "workflow": {
-    "beforePR": [
-      "yarn format",
-      "yarn lint",
-      "yarn build",
-      "yarn test"
-    ],
+    "beforePR": ["yarn format", "yarn lint", "yarn build", "yarn test"],
     "release": [
       "Ensure all tests pass",
       "Use npm version to bump version",
@@ -80,13 +75,7 @@
       "README.md"
     ]
   },
-  "keyFiles": [
-    "src/lib.rs",
-    "Cargo.toml",
-    "package.json",
-    "build.rs",
-    "__test__/index.spec.ts"
-  ],
+  "keyFiles": ["src/lib.rs", "Cargo.toml", "package.json", "build.rs", "__test__/index.spec.ts"],
   "commands": {
     "build": "yarn build",
     "test": "yarn test",

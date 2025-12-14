@@ -24,10 +24,10 @@ Releasing native Node.js packages used to be painful due to toolchain requiremen
 
 This project uses a modern approach:
 
-* **Prebuilt binaries** are generated via GitHub Actions
-* **N-API** ensures ABI compatibility across Node.js versions
-* Separate platform-specific npm packages are published
-* These are listed as `optionalDependencies` of the main package
+- **Prebuilt binaries** are generated via GitHub Actions
+- **N-API** ensures ABI compatibility across Node.js versions
+- Separate platform-specific npm packages are published
+- These are listed as `optionalDependencies` of the main package
 
 `npm` automatically installs the correct binary for the user’s platform without requiring postinstall downloads.
 

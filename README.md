@@ -18,7 +18,7 @@ Install with your package manager of choice:
 
 ```bash
 yarn add @wetteyve/rusty
-````
+```
 
 ## Vite Configuration (Optional)
 
@@ -42,12 +42,12 @@ export default defineConfig(() => ({
 When running in a Node.js server environment, no special configuration is required. Simply import the package and use it directly:
 
 ```typescript
-import { getArrayLength } from '@wetteyve/rusty';
+import { getArrayLength } from '@wetteyve/rusty'
 
-const arr = [{}, 1, 'hello', true];
+const arr = [{}, 1, 'hello', true]
 
-console.log(getArrayLength(arr)); // → 4
-````
+console.log(getArrayLength(arr)) // → 4
+```
 
 ## Client-Side Usage (WASM)
 

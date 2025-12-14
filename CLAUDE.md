@@ -5,6 +5,7 @@
 This is a **napi-rs** project that provides native Node.js addons written in Rust. The project demonstrates cross-platform native module development with support for both Node.js runtime and browser environments (via WASM).
 
 **Primary Goals:**
+
 - Experiment with Rust and napi-rs
 - Build reusable utility functions in Rust with Node.js bindings
 - Support all major platforms (Windows, macOS, Linux, FreeBSD, Android, WASM)
@@ -14,12 +15,14 @@ This is a **napi-rs** project that provides native Node.js addons written in Rus
 ## Technology Stack
 
 ### Core Technologies
+
 - **Rust** (Edition 2021) - Core implementation language
 - **napi-rs** (v3.0.0) - Node.js Native API bindings framework
 - **Node.js** - Runtime environment (v12.22.0+, v14.17.0+, v15.12.0+, v16.0.0+)
 - **TypeScript** - Type definitions and tooling
 
 ### Build & Development Tools
+
 - **@napi-rs/cli** - Build and package management for napi-rs projects
 - **Cargo** - Rust package manager and build tool
 - **AVA** - Testing framework
@@ -30,6 +33,7 @@ This is a **napi-rs** project that provides native Node.js addons written in Rus
 - **lint-staged** - Pre-commit linting
 
 ### WASM Support
+
 - **@emnapi/core** - Emscripten Node-API implementation for WASM
 - **@tybys/wasm-util** - WASM utilities
 - **wasm32-wasip1-threads** target support
@@ -66,6 +70,7 @@ rusty/
 ## Architecture
 
 ### Native Module Flow
+
 1. **Rust Implementation** (`src/lib.rs`):
    - Functions are marked with `#[napi]` macro
    - napi-derive handles code generation
@@ -91,6 +96,7 @@ rusty/
 ### Supported Platforms
 
 The project targets 14 platforms:
+
 - **Windows**: x86_64, i686, aarch64
 - **macOS**: x86_64, aarch64 (Apple Silicon)
 - **Linux**: x86_64 (glibc/musl), aarch64 (glibc/musl), armv7 (gnueabihf)
@@ -101,6 +107,7 @@ The project targets 14 platforms:
 ## Development Workflow
 
 ### Initial Setup
+
 ```bash
 # Install dependencies
 yarn install
@@ -113,6 +120,7 @@ yarn test
 ```
 
 ### Common Commands
+
 ```bash
 # Development build (with debug symbols)
 yarn build:debug
@@ -140,6 +148,7 @@ yarn prepublishOnly
 ```
 
 ### Git Workflow
+
 - **Husky** runs pre-commit hooks
 - **lint-staged** automatically formats and lints staged files:
   - `*.{js,ts,tsx}` - oxlint --fix
@@ -149,6 +158,7 @@ yarn prepublishOnly
 ## Adding New Native Functions
 
 ### Step 1: Implement in Rust (`src/lib.rs`)
+
 ```rust
 #[napi]
 pub fn your_function_name(param: Type) -> ReturnType {
@@ -157,13 +167,17 @@ pub fn your_function_name(param: Type) -> ReturnType {
 ```
 
 ### Step 2: Build
+
 ```bash
 yarn build
 ```
+
 This auto-generates TypeScript definitions and Node.js bindings.
 
 ### Step 3: Test
+
 Create test in `__test__/index.spec.ts`:
+
 ```typescript
 import test from 'ava'
 import { yourFunctionName } from '../index'
@@ -174,6 +188,7 @@ test('description', (t) => {
 ```
 
 ### Step 4: Run Tests
+
 ```bash
 yarn test
 ```
@@ -181,12 +196,14 @@ yarn test
 ## Testing
 
 ### Test Framework
+
 - Uses **AVA** with TypeScript support via `@oxc-node/core/register`
 - 2-minute timeout per test
 - Worker threads disabled for native module compatibility
 - Custom tsconfig at `__test__/tsconfig.json`
 
 ### Running Tests
+
 ```bash
 yarn test           # Run all tests
 ava --verbose       # Run with verbose output
@@ -196,17 +213,21 @@ ava --watch         # Watch mode
 ## CI/CD Pipeline
 
 ### GitHub Actions (`.github/workflows/CI.yml`)
+
 The pipeline runs on:
+
 - **Push to main branch**
 - **Pull requests**
 - **Manual workflow dispatch**
 
 ### Build Matrix
+
 - **Node.js versions**: 20, 22
 - **Operating Systems**: macOS, Linux, Windows
 - **All 14 target platforms** are built in dedicated jobs
 
 ### Steps
+
 1. Checkout code
 2. Setup Rust toolchain
 3. Setup Node.js
@@ -219,6 +240,7 @@ The pipeline runs on:
 ## Release Process
 
 ### Creating a Release
+
 ```bash
 # Bump version (patch/minor/major)
 npm version patch   # or minor, or major
@@ -229,6 +251,7 @@ git push --tags
 ```
 
 ### What Happens
+
 1. GitHub Actions builds for all platforms
 2. Native binaries uploaded as artifacts
 3. Separate platform-specific npm packages published
@@ -239,6 +262,7 @@ git push --tags
 ## Key Files Reference
 
 ### Configuration Files
+
 - **Cargo.toml** (`/Cargo.toml:1`): Rust package configuration
 - **package.json** (`/package.json:1`): Node.js package configuration, scripts, and napi config
 - **tsconfig.json** (`/tsconfig.json:1`): TypeScript configuration
@@ -247,10 +271,12 @@ git push --tags
 - **.prettierignore** (`/.prettierignore:1`): Prettier ignore patterns
 
 ### Source Code
+
 - **src/lib.rs** (`/src/lib.rs:1`): Main Rust implementation
 - **build.rs** (`/build.rs:1`): Rust build script (calls napi-build)
 
 ### Generated Files (DO NOT EDIT)
+
 - **index.js** (`/index.js:1`): Auto-generated Node.js loader
 - **index.d.ts** (`/index.d.ts:1`): Auto-generated TypeScript definitions
 - **rusty.darwin-arm64.node**: Platform-specific native binary
@@ -260,20 +286,24 @@ git push --tags
 ## Browser/WASM Usage
 
 ### Vite Configuration
+
 Add to `vite.config.js`:
+
 ```javascript
 export default defineConfig({
   optimizeDeps: {
-    exclude: ['@wetteyve/rusty']
-  }
+    exclude: ['@wetteyve/rusty'],
+  },
 })
 ```
 
 ### Package Manager Setup
+
 Follow napi-rs WASM guide for your package manager:
 https://napi.rs/docs/concepts/webassembly
 
 ### Client-Side Loading
+
 ```typescript
 // Must load asynchronously
 const wasm = await import('@wetteyve/rusty')
@@ -283,6 +313,7 @@ wasm.getArrayLength([1, 2, 3]) // Use functions
 ## Common Development Tasks
 
 ### Adding Dependencies
+
 ```bash
 # Rust dependencies (edit Cargo.toml)
 cargo add <crate-name>
@@ -293,6 +324,7 @@ yarn add -D <dev-package>
 ```
 
 ### Debugging
+
 ```bash
 # Build with debug symbols
 yarn build:debug
@@ -305,6 +337,7 @@ cargo test
 ```
 
 ### Formatting Before Commit
+
 ```bash
 # Format everything
 yarn format
@@ -333,6 +366,7 @@ git commit -m "message"  # Hooks run automatically
 ## Troubleshooting
 
 ### Build Issues
+
 ```bash
 # Clean build artifacts
 cargo clean
@@ -344,12 +378,14 @@ yarn build
 ```
 
 ### Platform-Specific Builds
+
 ```bash
 # Build for specific target
 yarn build --target x86_64-apple-darwin
 ```
 
 ### WASM Issues
+
 - Ensure package manager supports WASM (see napi-rs docs)
 - Verify async loading in browser contexts
 - Check browser console for WASM loading errors

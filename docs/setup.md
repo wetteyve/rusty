@@ -10,6 +10,7 @@
    ```bash
    yarn install
    ```
+
 3. Build the native module:
 
    ```bash
@@ -52,6 +53,6 @@ The package is compiled for all supported napi-rs targets.
 
 ## Development Requirements
 
-* Latest stable **Rust**
-* **Node.js 10+** (Node-API compatible)
-* **Yarn 1.x**
+- Latest stable **Rust**
+- **Node.js 10+** (Node-API compatible)
+- **Yarn 1.x**
