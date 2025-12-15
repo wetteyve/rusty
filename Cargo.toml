@@ -6,7 +6,7 @@ name    = "rusty"
 version = "0.1.0"
 
 [lib]
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "lib"]
 
 [dependencies]
 napi        = "3.7.0"

@@ -53,7 +53,5 @@ const {
   },
 })
 export default __napiModule.exports
-export const getArrayLength = __napiModule.exports.getArrayLength
 export const guessingGame = __napiModule.exports.guessingGame
 export const helloNapi = __napiModule.exports.helloNapi
-export const plus100 = __napiModule.exports.plus100

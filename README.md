@@ -42,11 +42,9 @@ export default defineConfig(() => ({
 When running in a Node.js server environment, no special configuration is required. Simply import the package and use it directly:
 
 ```typescript
-import { getArrayLength } from '@wetteyve/rusty'
+import { helloNapi } from '@wetteyve/rusty'
 
-const arr = [{}, 1, 'hello', true]
-
-console.log(getArrayLength(arr)) // → 4
+console.log(helloNapi('rusty')) // → Hello, rusty!
 ```
 
 ## Client-Side Usage (WASM)
@@ -59,29 +57,23 @@ console.log(getArrayLength(arr)) // → 4
 ```typescript
 import { type Route } from './+types/home';
 
-const arr = [{}, 1, 'hello', true];
-
 // Setup WASM in client browser
 export const clientLoader = async ({ serverLoader }: Route.ClientLoaderArgs) => {
-  const [serverData, wasm] = await Promise.all([
+  const [serverData, rusty] = await Promise.all([
     serverLoader(),
     import('@wetteyve/rusty'),  // Load WASM asynchronously
   ]);
-  return { ...serverData, wasm };
+  return { ...serverData, rusty };
 };
 clientLoader.hydrate = true;
 
 export const HydrateFallback = () => <p>Loading...</p>;
 
-const App = ({ loaderData: { wasm } }: Route.ComponentProps) => {
-  const handleClick = () => window.alert(`WASM array length: ${wasm.getArrayLength(arr)}`);
-
-  return (
-    <div>
-      <button onClick={handleClick}>PUSH FOR WASM!</button>
-    </div>
-  );
-};
+const App = ({ loaderData: { rusty } }: Route.ComponentProps) => (
+  <div>
+    <button onClick={() => window.alert(rusty.helloNapi('WASM'))}>Hello WASM!</button>
+  </div>
+);
 
 export default App;
 ```
